@@ -62,3 +62,15 @@ void SysTick_Handler(void) {
 uint32_t BSP_getTick(void) {
 	return ms_ticks;
 }
+
+void BSP_UART_Write(char ch) {
+    // Wait until Transmit Data Register is empty (TXE bit in SR)
+    while (!(USART2->STATUS_REG & (1 << 7)));
+    USART2->DATA_REG = ch;
+}
+
+void BSP_UART_SendString(char *str) {
+    while (*str) {
+        BSP_UART_Write(*str++);
+    }
+}

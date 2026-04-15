@@ -64,4 +64,6 @@ void BSP_UART_init();
 void SysTick_Handler(void)
 void BSP_Timer_init(void);
 uint32_t BSP_getTick(void);
+void BSP_UART_Write(char ch);
+void BSP_UART_SendString(char *str);
 #endif
