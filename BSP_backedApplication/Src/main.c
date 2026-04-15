@@ -41,7 +41,7 @@ int main(void)
 			last_blink = current_time;
 		}
 		if((current_time - last_uart)>=0) {
-			BSP_UART_init();
+			BSP_UART_SendString("System Status: Running\r\n");
 			last_uart = current_time;
 		}
 	}
